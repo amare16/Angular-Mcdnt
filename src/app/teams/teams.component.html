@@ -1,0 +1,44 @@
+<h2>Liste des equipe</h2>
+
+<div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Affichage</label>
+      </div>
+          <select class="custom-select" [(ngModel)]="team_display">
+            <option selected>Choisir...</option>
+            <option value="a1">Fiches</option>
+            <option value="a2">Tableau</option>
+          </select>
+    </div>
+
+</div>
+<!-- <p>{{team_display}}</p> -->
+
+<app-team
+    [hidden]="team_display == 'a2'"
+    style="margin-bottom: 70px; display: block"
+    [team] = "team"
+    *ngFor="let team of teams" class="app-team">
+</app-team>
+
+<table [hidden]="team_display == 'a1'" class="table table-bordered table-stripped text-center">
+
+    <tr>
+        <th>Logo</th>
+        <th>Nom</th>
+        <th>Entraineur</th>
+        <th>Stade</th>
+        <th>Annee de creation</th>
+
+    </tr>
+    <tr *ngFor="let team of teams">
+        <td>
+            <img class="logo_small" src="{{team.getLogoUrl()}}" alt="{{team.name}}">
+        </td>
+        <td>{{ team.name }}</td>
+        <td>{{ team.coach }}</td>
+        <td>{{ team.stadium }}</td>
+        <td [ngClass]="{old: team.founded < 1950}">{{ team.founded }}</td>
+    </tr>
+</table>
