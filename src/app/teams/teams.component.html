@@ -27,9 +27,12 @@
     <tr>
         <th>Logo</th>
         <th>Nom</th>
+        <th>Pays</th>
         <th>Entraineur</th>
         <th>Stade</th>
         <th>Annee de creation</th>
+        <th>Coupes</th>
+
 
     </tr>
     <tr *ngFor="let team of teams">
@@ -37,8 +40,27 @@
             <img class="logo_small" src="{{team.getLogoUrl()}}" alt="{{team.name}}">
         </td>
         <td>{{ team.name }}</td>
+        <td>{{ team.country }}</td>
         <td>{{ team.coach }}</td>
         <td>{{ team.stadium }}</td>
         <td [ngClass]="{old: team.founded < 1950}">{{ team.founded }}</td>
+        <td><app-cup [nb]="team.nbCup"></app-cup></td>
     </tr>
 </table>
+
+<!-- demo de l'utilisation du composant cup en relation avec un menu derulant
+    Souci: la mise a jour de nbSelected n'impacte pas le composant cup
+    Raison: le traitement cote enfant ne sait qu'une seule fois (ngOnInit)
+    Il foudrait reproduire le traitement des lors que nbSelected change de valeur
+-->
+
+<select [(ngModel)]="nbSelected">
+    <option value="">1</option>
+    <option value="">2</option>
+    <option value="">3</option>
+    <option value="">4</option>
+    <option value="">5</option>
+</select>
+
+<p>{{nbSelected}}</p>
+<app-cup [nb]="nbSelected"></app-cup>
