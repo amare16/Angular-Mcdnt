@@ -1,8 +1,15 @@
 <h1 class="title">{{title}}</h1>
 
+<nav>
+  <ul class="nav nav-tabs">
+    <li class="nav-item"><a class="nav-link" routerLink="">Accueil</a></li>
+    <li class="nav-item"><a class="nav-link" routerLink="/intro">Intro</a></li>
+    <li class="nav-item"><a class="nav-link" routerLink="/teams">Equipes</a></li>
+    <li class="nav-item"><a class="nav-link" routerLink="/admin" href="admin">Admin</a></li>
+    <li class="nav-item"><a class="nav-link" routerLink="/player">Joueurs</a></li>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>
 
 
-<!-- We inject intro tag here -->
-
-
-<app-teams></app-teams>

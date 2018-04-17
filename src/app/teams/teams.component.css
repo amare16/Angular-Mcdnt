@@ -17,7 +17,7 @@ img.logo_small {
 .table {
     border-radius: 5px;
     width: 50%;
-    margin: 0px auto;
+    margin: 0 auto;
     float: none;
     background-color: #a8dddd;
 
@@ -25,15 +25,24 @@ img.logo_small {
 
 .app-team {
     width: 50%;
-    margin: 0px auto;
+    margin: 0 auto;
     float: none;
     background-color: #34ce57;
 }
 
 .input-group {
     width: 50%;
-    margin: 0px auto;
+    margin: 0 auto;
     float: none;
     margin-top: 25px;
 
+}
+.btn-success {
+    margin-left: 378px;
+}
+.btn-default {
+    margin-left: 10px;
+}
+.btn-danger {
+    margin-right: 363px;
 }

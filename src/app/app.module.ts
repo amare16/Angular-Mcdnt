@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule} from "@angular/forms";
+import { RouterModule, Routes } from '@angular/router';
+import { HttpModule} from "@angular/http";
 
 
 import { AppComponent } from './app.component';
@@ -10,20 +12,37 @@ import { TeamsComponent } from './teams/teams.component';
 import { CupComponent } from './cup/cup.component';
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-      IntroComponent,
-    TeamComponent,
-    TeamsComponent,
-    CupComponent
-  ],
-  imports: [
-    BrowserModule,
-      FormsModule
+import { TeamService } from './team.service';
+import { AddTeamComponent } from './add-team/add-team.component';
+import { PlayerComponent } from './player/player.component';
 
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+
+const appRoutes: Routes = [
+    {path: 'intro', component: IntroComponent},
+    {path: 'teams', component: TeamsComponent},
+    {path: 'teams/:name', component: TeamComponent},
+    {path: 'admin', component: AddTeamComponent},
+    {path: 'player', component: PlayerComponent}
+
+
+]
+@NgModule({
+    declarations: [
+        AppComponent,
+        IntroComponent,
+        TeamComponent,
+        TeamsComponent,
+        CupComponent,
+        AddTeamComponent,
+        PlayerComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        RouterModule.forRoot(appRoutes),
+        HttpModule
+    ],
+    providers: [TeamService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

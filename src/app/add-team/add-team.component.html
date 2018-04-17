@@ -1,0 +1,63 @@
+<h3>Ajout d'une equipe</h3>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+
+                <div class="form-group">
+                    <label for="loogo">Logo (URL)</label>
+                    <input
+                        placeholder="http://"
+                        id="logo" type="text"
+                        class="form-control"
+                        [(ngModel)]="team.logo">
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" class="form-control" [(ngModel)]="team.name">
+                </div>
+
+                <div class="form-group">
+                    <label for="coach">Entraineur</label>
+                    <input type="text" id="coach" class="form-control" [(ngModel)]="team.coach">
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Pays</label>
+                    <select name="country" id="country" class="form-control" [(ngModel)]="team.country">
+                        <option *ngFor="let country of countries">{{country}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="stadium">Stade</label>
+                    <input type="text" id="stadium" class="form-control" [(ngModel)]="team.stadium">
+                 </div>
+
+                 <div class="form-group">
+                    <label for="founded">Année de création</label>
+                    <input type="number" id="founded" class="form-control" [(ngModel)]="team.founded">
+                </div>
+
+                <div class="form-group">
+                    <label for="nbCup">Nombre de Coupes</label>
+                    <select id="nbCup" class="form-control" [(ngModel)]="team.nbCup">
+                        <option>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                    <app-cup [nb]="team.nbCup"></app-cup>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary" (click)="onSubmit()">Enregistrer</button>
+
+        </div>
+        <div class="col-md-6"></div>
+    </div>
+</div>
+

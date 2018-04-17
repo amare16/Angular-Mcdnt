@@ -1,5 +1,6 @@
 import { Component} from "@angular/core";
 import { Book } from '../../model/Book';
+import { TeamService } from '../team.service';
 
 @Component({
     selector: 'app-intro',
@@ -8,6 +9,8 @@ import { Book } from '../../model/Book';
 export class IntroComponent {
     // title est la proprieter et app est la valeur
     // les proprietes sont publiques par defaut
+
+    // types primitifs (simples)
     public title = 'Mon Premier application d\'Angularjs';
     message: string = '';
     message2: string = '';
@@ -42,6 +45,11 @@ export class IntroComponent {
     // instanciation de la class Book
     book1: Book = new Book('Game of Thrones', 2001);
     // book1.setTitle('Game of Throes'); mauvais endroit pour appeler la methode
+
+    // DI (Dependency Injection). Le constructeur de la classe IntroComponent
+    // instancie la classe TeamService
+    // les objets IntroComponent dispose d'une propriété this.teamService
+    constructor(private teamService: TeamService) {}
 
     test() {
         // console.log('le test functionne');

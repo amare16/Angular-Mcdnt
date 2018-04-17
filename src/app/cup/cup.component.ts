@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
 @Component({
   selector: 'app-cup',
@@ -6,17 +6,19 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./cup.component.css']
 })
 export class CupComponent implements OnInit {
-  @Input('nb') nb: number;
-  markup: string = '';
+    @Input('nb') nb: number;
+    markup: string = '';
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-    let img_markup = '<img class="cup_small" src="/assets/img/logos/champions-cup.jpg" alt="cup">';
-    for (let i = 0; i < this.nb; i++) {
+    ngOnChanges() {
+    this.markup = '';
+    let img_markup = '<img class="cup_small" src="/assets/img/logos/champions-cup.jpg" alt="">';
+    for(let i=0; i<this.nb; i++) {
       this.markup += img_markup;
     }
-
   }
+
+  ngOnInit() {}
 
 }
