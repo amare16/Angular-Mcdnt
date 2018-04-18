@@ -11,4 +11,17 @@
         <th>Position</th>
 
     </tr>
+
+    <tr *ngFor="let player of playerFiltered">
+        <td>{{ player.id }}</td>
+        <td>
+            <img class="player_picture" src="../../assets/img/players/delpero.jpg" alt="Delpero number 10">
+        </td>
+        <td><a routerLink="/player/{{player.first_name}}">{{ player.first_name }}</a></td>
+        <td>{{ player.last_name }}</td>
+        <td>{{ player.current_team }}</td>
+        <td>{{ player.country }}</td>
+        <td>{{ player.position }}</td>
+
+    </tr>
 </table>

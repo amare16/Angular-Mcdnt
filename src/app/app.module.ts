@@ -15,6 +15,7 @@ import { CupComponent } from './cup/cup.component';
 import { TeamService } from './team.service';
 import { AddTeamComponent } from './add-team/add-team.component';
 import { PlayerComponent } from './player/player.component';
+import { PlayerService} from "./player.service";
 
 
 const appRoutes: Routes = [
@@ -42,7 +43,7 @@ const appRoutes: Routes = [
         RouterModule.forRoot(appRoutes),
         HttpModule
     ],
-    providers: [TeamService],
+    providers: [TeamService, PlayerService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

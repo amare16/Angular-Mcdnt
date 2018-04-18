@@ -5,7 +5,7 @@ import { Player} from '../model/Player';
 @Injectable()
 export class PlayerService {
   private player: Player[] = [
-      new Player(1, 'img', 'Delpero', 'Jovani', 'Juventus', 'Italie', 'attaquer')
+      new Player(1, 'delpero.jpg', 'Delpero', 'Alessandro', 'Juventus', 'Italie', 'attaquer')
   ];
 
   constructor() { }

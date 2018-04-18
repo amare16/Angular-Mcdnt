@@ -10,9 +10,17 @@ import { PlayerService} from '../player.service';
 })
 export class PlayerComponent implements OnInit {
 
-  constructor() { }
+  player: Player[] = [];
+  playerFiltered: Player[] = [];
+
+  player_display: string;
+
+  constructor(private playerService: PlayerService) { }
 
   ngOnInit() {
+
+    this.player = this.playerService.getPlayer();
+    this.playerFiltered = this.player;
   }
 
 }
