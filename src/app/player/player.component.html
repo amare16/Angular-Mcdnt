@@ -15,7 +15,7 @@
     <tr *ngFor="let player of playerFiltered">
         <td>{{ player.id }}</td>
         <td>
-            <img class="player_picture" src="../../assets/img/players/delpero.jpg" alt="Delpero number 10">
+            <img class="player_picture" src="../../assets/img/players/{{player.picture}}" alt="{{player.first_name}}">
         </td>
         <td><a routerLink="/player/{{player.first_name}}">{{ player.first_name }}</a></td>
         <td>{{ player.last_name }}</td>
