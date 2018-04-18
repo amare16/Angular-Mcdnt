@@ -1,4 +1,17 @@
+<h2>Listes des Joueurs</h2>
 
+<div class="div-select">
+    <div class="input-group mb3">
+        <select class="custom-select" [(ngModel)]="currentTeamSelected" (change)="filterCurrentPlayer()">
+            <option value="0">Filtrer par equipe</option>
+            <option *ngFor="let current_team of current_teams">{{current_team}}</option>
+        </select>
+        <select class="custom-select" [(ngModel)]="positionSelected" (change)="filterCurrentPlayers()">
+            <option value="0">Filtrer par poste sur le terrain</option>
+            <option *ngFor="let position of positions">{{position}}</option>
+        </select>
+    </div>
+</div>
 
 <table class="table table-bordered table stripped">
     <tr>
